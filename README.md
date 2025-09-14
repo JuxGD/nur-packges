@@ -1,6 +1,6 @@
 # nur-packges
 
-**My personal [NUR](https://github.com/nix-community/NUR) repository**
+**My personal [NUR](https://github.com/nix-community/NUR) repository with literally one package in it**
 
 **Yes I'm keeping that typo**
 
