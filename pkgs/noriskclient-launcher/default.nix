@@ -72,7 +72,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       | sponge src-tauri/tauri.conf.json
   '' 
   # thank you to whoever wrote https://github.com/NixOS/nixpkgs/blob/04e40bca2a68d7ca85f1c47f00598abb062a8b12/pkgs/by-name/ca/cargo-tauri/test-app.nix#L23-L26
-  ++ lib.optionalString stdenv.hostPlatform.isLinux ''
+  ++ lib.optionals stdenv.hostPlatform.isLinux ''
     substituteInPlace $cargoDepsCopy/libappindicator-sys-*/src/lib.rs \
       --replace "libayatana-appindicator3.so.1" "${libayatana-appindicator}/lib/libayatana-appindicator3.so.1"
   '';
