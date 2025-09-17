@@ -17,7 +17,7 @@
   temurin-bin,
   temurin-bin-8,
   temurin-bin-17,
-  libappindicator
+  libayatana-appindicator
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
