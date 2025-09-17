@@ -52,12 +52,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
     temurin-bin
     temurin-bin-8
     temurin-bin-17
+    libayatana-appindicator
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     glib-networking
     openssl
     webkitgtk_4_1
-    libayatana-appindicator
   ];
 
   cargoRoot = "src-tauri";
