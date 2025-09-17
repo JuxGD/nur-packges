@@ -89,7 +89,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	github = "JuxGD";
 	githubId = 117054307;
       }
-    ]
+    ];
     sourceProvenance = [ lib.sourceTypes.fromSource ];
     license = lib.licenses.gpl3Only;
     platforms = lib.platforms.linux;
