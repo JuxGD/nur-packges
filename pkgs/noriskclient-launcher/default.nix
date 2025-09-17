@@ -57,7 +57,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     glib-networking
     openssl
     webkitgtk_4_1
-    libappindicator
+    libayatana-appindicator
   ];
 
   cargoRoot = "src-tauri";
