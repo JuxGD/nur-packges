@@ -52,24 +52,30 @@ rustPlatform.buildRustPackage (finalAttrs: {
     temurin-bin
     temurin-bin-8
     temurin-bin-17
-    libayatana-appindicator
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     glib-networking
     openssl
     webkitgtk_4_1
+    libayatana-appindicator
   ];
 
   cargoRoot = "src-tauri";
   buildAndTestSubdir = finalAttrs.cargoRoot;
 
+  # thank you donovanglover your code in that pull request you made to nixpkgs was very useful
   postPatch = ''
     jq \
       '.plugins.updater.endpoints = [ ]
       | .bundle.createUpdaterArtifacts = false' \
       src-tauri/tauri.conf.json \
       | sponge src-tauri/tauri.conf.json
-  ''; # thank you donovanglover your code in that pull request you made to nixpkgs was very useful
+  '' 
+  # thank you to whoever wrote https://github.com/NixOS/nixpkgs/blob/04e40bca2a68d7ca85f1c47f00598abb062a8b12/pkgs/by-name/ca/cargo-tauri/test-app.nix#L23-L26
+  ++ lib.optionalString stdenv.hostPlatform.isLinux ''
+    substituteInPlace $cargoDepsCopy/libappindicator-sys-*/src/lib.rs \
+      --replace "libayatana-appindicator3.so.1" "${libayatana-appindicator}/lib/libayatana-appindicator3.so.1"
+  '';
 
   meta = with lib; {
     description = "Launcher for the NoRiskClient PvP client for Minecraft";
