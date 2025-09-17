@@ -16,7 +16,8 @@
   fetchFromGitHub,
   temurin-bin,
   temurin-bin-8,
-  temurin-bin-17
+  temurin-bin-17,
+  libappindicator
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -56,6 +57,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     glib-networking
     openssl
     webkitgtk_4_1
+    libappindicator
   ];
 
   cargoRoot = "src-tauri";
