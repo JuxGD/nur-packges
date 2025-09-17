@@ -73,7 +73,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       | .bundle.createUpdaterArtifacts = false' \
       src-tauri/tauri.conf.json \
       | sponge src-tauri/tauri.conf.json
-  ''
+  '';
 
   meta = with lib; {
     description = "Launcher for the NoRiskClient PvP client for Minecraft";
