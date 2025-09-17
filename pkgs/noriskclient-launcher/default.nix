@@ -77,10 +77,23 @@ rustPlatform.buildRustPackage (finalAttrs: {
       | sponge src-tauri/tauri.conf.json
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Launcher for the NoRiskClient PvP client for Minecraft";
+    branch = "v3";
     homepage = "https://norisk.gg/";
+    downloadPage = "https://github.com/";
+    maintainers = [
+      {
+        name = "JuxGD";
+	email = "jak@e.email";
+	github = "JuxGD";
+	githubId = 117054307;
+      }
+    ]
+    sourceProvenance = [ lib.sourceTypes.fromSource ];
     license = lib.licenses.gpl3Only;
-    platforms = platforms.unix;
+    platforms = lib.platforms.linux;
+    mainProgram = "noriskclient-launcher-v3";
+    broken = true; # set as broken since it can't actually launch Minecraft
   };
 })
