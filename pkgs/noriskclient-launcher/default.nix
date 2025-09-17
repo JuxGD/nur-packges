@@ -17,7 +17,8 @@
   temurin-bin,
   temurin-bin-8,
   temurin-bin-17,
-  libayatana-appindicator
+  libayatana-appindicator,
+  pciutils
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -52,6 +53,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     temurin-bin
     temurin-bin-8
     temurin-bin-17
+    pciutils
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     glib-networking
