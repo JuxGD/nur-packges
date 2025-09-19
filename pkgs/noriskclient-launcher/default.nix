@@ -51,6 +51,7 @@ symlinkJoin {
         libXcursor
         libXext
         libXrandr
+        libXrender
         libXxf86vm
 
         udev
@@ -67,4 +68,6 @@ symlinkJoin {
     (noriskclient-launcher'.postPatch or "") + ''
       wrapProgram $out/bin/noriskclient-launcher-v3 --set PATH ${lib.makeBinPath runtimePrograms} --set LD_LIBRARY_PATH ${lib.makeLibraryPath runtimeLibs}
     '';
+
+  (inherit noriskclient-launcher'.meta);
 }
