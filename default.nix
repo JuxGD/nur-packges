@@ -10,7 +10,7 @@
 
 
 let
-  maintainers-list = import builtins.fetchurl "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently/raw/branch/main/maintainers-list.nix";
+  maintainers-list = builtins.fetchurl "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently/raw/branch/main/maintainers-list.nix";
 in
 rec {
   noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inherit maintainers-list; };
