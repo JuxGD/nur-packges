@@ -10,5 +10,5 @@
 
 rec {
   noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inputs = inputs; };
-  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { };
+  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { noriskclient-launcher-unwrapped = noriskclient-launcher-unwrapped; };
 }

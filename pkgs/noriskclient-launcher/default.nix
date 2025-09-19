@@ -14,6 +14,7 @@
   libjack2,
   libpulseaudio,
   mesa-demos,
+  noriskclient-launcher-unwrapped,
   openal,
   pciutils,
   pipewire,
@@ -29,7 +30,7 @@
 }:
 
 let
-  noriskclient-launcher' = callPackage ../noriskclient-launcher-unwrapped { };
+  noriskclient-launcher' = noriskclient-launcher-unwrapped;
 in
 symlinkJoin {
   name = "noriskclient-launcher-${noriskclient-launcher'.version}";
