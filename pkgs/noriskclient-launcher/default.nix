@@ -83,12 +83,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     homepage = "https://norisk.gg/";
     downloadPage = "https://github.com/";
     maintainers = [
-      {
-        name = "JuxGD";
-	email = "jak@e.email";
-	github = "JuxGD";
-	githubId = 117054307;
-      }
+      inputs.jux-is-a-nix-maintainer-apparently.maintainers-list.JuxGD
     ];
     sourceProvenance = [ lib.sourceTypes.fromSource ];
     license = lib.licenses.gpl3Only;
