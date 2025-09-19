@@ -10,4 +10,5 @@
 
 {
   noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { };
+  noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { };
 }
