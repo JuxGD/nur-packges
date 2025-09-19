@@ -9,6 +9,7 @@
   libXcursor,
   libXext,
   libXrandr,
+  libXrender,
   libXxf86vm,
   libjack2,
   libpulseaudio,
