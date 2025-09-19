@@ -10,9 +10,14 @@
 
 
 let
-  maintainers-list = builtins.fetchurl "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently/raw/branch/main/maintainers-list.nix";
+  maintainers-list-repo = pkgs.fetchgit {
+    name = "jux-is-a-nix-maintainer-apparently";
+    url = "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently";
+  };
+
+  maintainers-list = import (maintainers-list-repo + "/maintainers-list.nix");
 in
 rec {
-  noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inherit maintainers-list; };
-  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { noriskclient-launcher-unwrapped = noriskclient-launcher-unwrapped; inherit maintainers-list; };
+  noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inherit (maintainers-list) maintainers-list; };
+  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { noriskclient-launcher-unwrapped = noriskclient-launcher-unwrapped; inherit (maintainers-list) maintainers-list; };
 }
