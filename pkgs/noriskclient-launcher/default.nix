@@ -1,6 +1,7 @@
 {
   addDriverRunpath,
   alsa-lib,
+  callPackage,
   glfw3-minecraft,
   lib,
   libGL,
@@ -15,12 +16,11 @@
   openal,
   pciutils,
   pipewire,
-  noriskclient-launcher-unwrapped,
   stdenv,
   symlinkJoin,
   udev,
   vulkan-loader,
-  wrapProgram,
+  makeWrapper,
   xrandr,
 
   additionalLibs ? [ ],
@@ -28,7 +28,7 @@
 }:
 
 let
-  noriskclient-launcher' = noriskclient-launcher-unwrapped;
+  noriskclient-launcher' = callPackage ../noriskclient-launcher-unwrapped { };
 in
 symlinkJoin {
   name = "noriskclient-launcher-${noriskclient-launcher'.version}";
