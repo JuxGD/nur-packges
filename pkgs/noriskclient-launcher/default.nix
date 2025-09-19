@@ -69,19 +69,6 @@ symlinkJoin {
     (noriskclient-launcher'.postPatch or "") + ''
       wrapProgram $out/bin/noriskclient-launcher-v3 --set PATH ${lib.makeBinPath runtimePrograms} --set LD_LIBRARY_PATH ${lib.makeLibraryPath runtimeLibs}
     '';
-
-  meta = {
-    description = "Launcher for the NoRiskClient PvP client for Minecraft";
-    branch = "v3";
-    homepage = "https://norisk.gg/";
-    downloadPage = "https://github.com/";
-    maintainers = [
-      inputs.jux-is-a-nix-maintainer-apparently.maintainers-list.JuxGD
-    ];
-    sourceProvenance = [ lib.sourceTypes.fromSource ];
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-    mainProgram = "noriskclient-launcher-v3";
-    broken = true; # set as broken since it can't actually launch Minecraft
-  };
-})
+  
+  ( inherit noriskclient-launcher'.meta );
+}
