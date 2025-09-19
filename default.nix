@@ -6,9 +6,13 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ inputs ? builtins.getFlake ./., pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { } }:
 
+
+let
+  maintainers-list = import builtins.fetchurl "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently/raw/branch/main/maintainers-list.nix";
+in
 rec {
-  noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inputs = inputs; };
-  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { noriskclient-launcher-unwrapped = noriskclient-launcher-unwrapped; };
+  noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inherit maintainers-list; };
+  noriskclient-launcher = pkgs.callPackage ./pkgs/noriskclient-launcher { noriskclient-launcher-unwrapped = noriskclient-launcher-unwrapped; inherit maintainers-list; };
 }
