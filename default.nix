@@ -10,7 +10,15 @@
 
 
 let
-  maintainers-list = import (builtins.fetchurl "https://codeberg.org/JuxGD/jux-is-a-nix-maintainer-apparently/raw/branch/main/maintainers-list.nix");
+  maintainers-list = {
+    JuxGD = {
+      # FINE i give up i'll just do it here. god
+      name = "JuxGD";
+      email = "jak@e.email";
+      github = "JuxGD";
+      githubId = 117054307;
+    };
+  };
 in
 rec {
   noriskclient-launcher-unwrapped = pkgs.callPackage ./pkgs/noriskclient-launcher-unwrapped { inherit (maintainers-list) maintainers-list; };
