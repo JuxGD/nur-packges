@@ -1,6 +1,12 @@
 # nur-packges
 
-**My personal [NUR](https://github.com/nix-community/NUR) repository with literally one package in it**
+**My personal [NUR](https://github.com/nix-community/NUR) repository** which has ONE (1) package (`tetrio-plus` for TETR.IO V10)
+
+## jux how do i use the tetrio plus
+
+Uhh go to the place where the TETR.IO package is and do `tetrio-desktop.override = { tetrio-plus = nur.repos.JuxGD.tetrio-plus; }` instead of just `tetrio-desktop`.
+
+idk
 
 **Yes I'm keeping that typo**
 
